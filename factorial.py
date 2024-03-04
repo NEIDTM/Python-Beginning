@@ -4,4 +4,5 @@ def fac_n():
     for i in range(c, n + 1):
         c = c * i
     print(c)
+
 fac_n()
