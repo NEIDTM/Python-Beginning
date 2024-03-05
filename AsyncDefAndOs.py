@@ -4,7 +4,7 @@ import os
 
 list = ['1. Your data', '2. None', '3. None', '4. None']
 
-print("What you want?")
+print("What do you want?")
 print(list)
 
 choice = int(input("Choose the function, by typing the number: "))
