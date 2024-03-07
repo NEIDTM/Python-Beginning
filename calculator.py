@@ -1,3 +1,5 @@
+import asyncio
+
 first_number = int(input("Type your first number: "))
 
 print(f"""
@@ -34,6 +36,10 @@ Type your second number: """))
 print(f"""
 Your second number is {second_number}""")
 
+async def sleep():
+	await asyncio.sleep(5)
+	print("Goodbye!")
+
 def sum():
 	equals = 0
 	equals = first_number + second_number
@@ -54,22 +60,55 @@ def mult():
 	equals = first_number * second_number
 	return equals
 
+
+async def action_one():
+	result = (f"""
+{first_number} + {second_number} = {sum()}""")
+	print(result)
+	await asyncio.sleep(2)
+	file = open("history.txt", 'a')
+	file.write(f"""{result}""")
+	file.close()
+
+
+async def action_two():
+	result = (f"""
+{first_number} - {second_number} = {diff()}""")
+	print(result)
+	await asyncio.sleep(2)
+	file = open("history.txt", 'a')
+	file.write(f"""{result}""")
+	file.close()
+
+
+async def action_three():
+	result = (f"""
+{first_number} / {second_number} = {div()}""")
+	print(result)
+	await asyncio.sleep(2)
+	file = open("history.txt", 'a')
+	file.write(f"""{result}""")
+	file.close()
+
+
+async def action_four():
+	result = (f"""
+{first_number} * {second_number} = {mult()}""")
+	print(result)
+	await asyncio.sleep(2)
+	file = open("history.txt", 'a')
+	file.write(f"""{result}""")
+	file.close()
+
+
 if action == 1:
-    print(f"""
-{first_number} + {second_number} = {sum()}
-""")
+	asyncio.run(action_one())
 
 if action == 2:
-    print(f"""
-{first_number} - {second_number} = {diff()}
-""")
+	asyncio.run(action_two())
 
 if action == 3:
-    print(f"""
-{first_number} / {second_number} = {div()}
-""")
-    
+	asyncio.run(action_three())
+
 if action == 4:
-    print(f"""
-{first_number} * {second_number} = {mult()}
-""")
+	asyncio.run(action_four())
